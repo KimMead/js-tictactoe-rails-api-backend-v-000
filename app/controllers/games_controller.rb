@@ -5,28 +5,28 @@ before_action :set_game, only: [:show, :update]
     render json: games
   end
 
-  def show 
-    render json: @game 
-  end 
+  def show
+    render json: @game
+  end
 
-  def create 
+  def create
     game = Game.create(game_params)
     render json: game, status: 201
-  end 
+  end
 
-  def update 
+  def update
     @game.update(game_params)
-    render json: @game 
-  end 
+    render json: @game
+  end
 
-  private 
+  private
 
-  def game_params 
+  def game_params
     params.permit(state: [])
-  end 
+  end
 
-  def set_game 
+  def set_game
     @game = Game.find(params[:id])
-  end 
+  end
 
 end
